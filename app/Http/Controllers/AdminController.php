@@ -13,6 +13,10 @@ class AdminController extends Controller
     {
         //
     }
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 
     /**
      * Show the form for creating a new resource.
