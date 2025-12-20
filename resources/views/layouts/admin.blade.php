@@ -78,12 +78,13 @@
                         <a href="{{ route('admin.orders.index') }}"
                            class="nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
                             <i class="bi bi-receipt me-2"></i> Pesanan
+                            {{-- komentar --}}
                             {{-- Logic PHP di View ini hanya untuk contoh.
                                  Best Practice: Gunakan View Composer atau inject variable dari Controller.
                                  Jangan query database langsung di Blade view di production app! --}}
                             @php
                                 $pendingCount = \App\Models\Order::where('status', 'pending')
-                                    ->where('payment_status', 'paid')->count();
+                                    ->where('status', 'paid')->count();
                             @endphp
                             @if($pendingCount > 0)
                                 <span class="badge bg-warning text-dark ms-auto">{{ $pendingCount }}</span>
@@ -142,9 +143,9 @@
                 </div>
             </header>
 
-            {{-- Flash Messages --}}
+            {{--Flash Messages --}}
             <div class="px-4 pt-3">
-                @include('partials.flash-messages')
+                @include('profile.partials.flash-messages')
             </div>
 
             {{-- Page Content --}}

@@ -19,7 +19,7 @@
         </button>
 
         {{-- Navbar Content --}}
-        <div class="collapse navbar-collapse" id="navbarMain">
+        <div class="navbar-collapse" id="navbarMain">
             {{-- Search Form --}}
             <form class="d-flex mx-auto" style="max-width: 400px; width: 100%;"
                   action="{{ route('catalog.index') }}" method="GET">
