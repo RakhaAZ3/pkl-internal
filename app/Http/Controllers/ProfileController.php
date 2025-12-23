@@ -84,6 +84,29 @@ class ProfileController extends Controller
 
         return $path;
     }
+// mengupdate foto profil
+    protected function updateAvatar(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'avatar' => ['required', 'image', 'max:2048'], // Maks 2MB
+        ]);
+
+        $user = $request->user();
+
+        // Hapus avatar lama jika ada
+        if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+
+        // Simpan avatar baru
+        $filename = 'avatar-' . $user->id . '-' . time() . '.' . $request->file('avatar')->extension();
+        $path = $request->file('avatar')->storeAs('avatars', $filename, 'public');
+
+        // Update path avatar di database
+        $user->update(['avatar' => $path]);
+
+        return back()->with('success', 'Foto profil berhasil diperbarui.');
+    }
 
     /**
      * Menghapus avatar (tombol "Hapus Foto").

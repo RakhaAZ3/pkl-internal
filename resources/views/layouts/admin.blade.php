@@ -100,7 +100,7 @@
                     </li>
 
                     <li class="nav-item mt-3">
-                        <span class="nav-link text-muted small text-uppercase">Laporan</span>
+                        <span class="nav-link text-white small text-uppercase">Laporan</span>
                     </li>
 
                     <li class="nav-item">
@@ -119,7 +119,7 @@
                          class="rounded-circle me-2" width="36" height="36">
                     <div class="flex-grow-1">
                         <div class="small fw-medium">{{ auth()->user()->name }}</div>
-                        <div class="small text-muted">Administrator</div>
+                        <div class="small text-black">Administrator</div>
                     </div>
                 </div>
             </div>
