@@ -4,6 +4,8 @@
 // FUNGSI: Definisi semua route website
 // ================================================
 
+use App\Http\Controllers\MidtransNotificationController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CartController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -65,8 +68,6 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
 
         // /admin/dashboard
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])
-            ->name('dashboard');
         // ↑ Nama lengkap route: admin.dashboard
         // ↑ URL: /admin/dashboard
 
@@ -167,6 +168,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
     Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
+     // Manajemen Pengguna
+    Route::get('/user', [AdminController::class, 'index'])->name('users.index');
+    Route::delete('/user/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
 });
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -178,12 +183,11 @@ Route::middleware(['auth', 'admin'])
 
         Route::get('/reports/sales', [ReportController::class, 'sales'])
             ->name('reports.sales');
+        
+        Route::get('/reports/export-sales', [ReportController::class, 'exportSales'])->name('reports.export-sales');
     });
 // routes/web.php
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function() {
-    Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])
-         ->name('admin.users.index');
-});
+
 
 // Route::middleware('auth')->group(function () {
 
@@ -208,6 +212,26 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // ...
 });
 
+Route::middleware('auth')->group(function () {
+    // ... routes lainnya
+
+    // Payment Routes
+    Route::get('/orders/{order}/pay', [PaymentController::class, 'show'])
+        ->name('orders.pay');
+    Route::get('/orders/{order}/success', [PaymentController::class, 'success'])
+        ->name('orders.success');
+    Route::get('/orders/{order}/pending', [PaymentController::class, 'pending'])
+        ->name('orders.pending');
+});
+Route::post('/login', [LoginController::class, 'login'])->middleware('throttle:5,1');
+
+// ============================================================
+// MIDTRANS WEBHOOK
+// Route ini HARUS public (tanpa auth middleware)
+// Karena diakses oleh SERVER Midtrans, bukan browser user
+// ============================================================
+Route::post('midtrans/notification', [MidtransNotificationController::class, 'handle'])
+    ->name('midtrans.notification');
 
 // ================================================
 // AUTH ROUTES (dari Laravel UI)
