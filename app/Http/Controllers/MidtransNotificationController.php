@@ -179,8 +179,9 @@ class MidtransNotificationController extends Controller
             ]);
         }
 
+        $order->load('user');
         // TODO: Kirim email konfirmasi pembayaran
-        // event(new PaymentSuccessful($order));
+        event(new OrderPaidEvent($order));
     }
 
     /**
@@ -225,7 +226,7 @@ class MidtransNotificationController extends Controller
     }
 
     /**
-     * Handle refund.
+     * Handle refund.`
      */
     protected function handleRefund(Order $order, ?Payment $payment): void
     {
@@ -237,11 +238,5 @@ class MidtransNotificationController extends Controller
 
         // TODO: Logic tambahan untuk refund
     }
-    private function setSuccess(Order $order)
-{
-    $order->update([]);
 
-    // Fire & Forget
-    event(new OrderPaidEvent($order));
-}
-}
+} 

@@ -75,11 +75,13 @@
                                     </td>
                                     </td>
                                     <td class="text-end pe-4">
-                                        <button class="btn btn-sm btn-outline-warning me-1"
+                                        <a href="{{ route('admin.products.edit', $category->id) }}" class="btn btn-sm btn-outline-warning me-1">
+                                        <i class="bi bi-pencil"></i></a>
+                                        {{-- <button class="btn btn-sm btn-outline-warning me-1"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#editModal{{ $category->id }}">
                                             <i class="bi bi-pencil"></i>
-                                        </button>
+                                        </button> --}}
                                         <form action="{{ route('admin.products.destroy', $category) }}" method="POST" class="d-inline"
                                               onsubmit="return confirm('Yakin hapus Produk ini?')">
                                             @csrf

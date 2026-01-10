@@ -12,9 +12,9 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Elektronik',
-                'slug' => 'elektronik',
-                'description' => 'Perangkat elektronik seperti smartphone, laptop, dan gadget lainnya',
+                'name' => 'Jersey',
+                'slug' => 'jersey',
+                'description' => 'Jersey olahraga dan pakaian olahraga',
                 'is_active' => true,
             ],
             [

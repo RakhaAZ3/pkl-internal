@@ -23,6 +23,17 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\GoogleController;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-mail', function () {
+    Mail::raw('Tes Mailtrap Laravel 12', function ($msg) {
+        $msg->to('test@mailtrap.io')
+            ->subject('Tes Masuk');
+    });
+
+    return 'Email dikirim';
+});
+
 
 Route::get('/', function () {
     return view('welcome');
