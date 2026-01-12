@@ -3,13 +3,14 @@
      FUNGSI: Navigation bar untuk customer
      ================================================ --}}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light navbar-blue shadow-sm sticky-top">
     <div class="container">
         {{-- Logo & Brand --}}
         <a class="navbar-brand text-primary" href="{{ route('home') }}">
             <img src="{{ asset('images/remove.png') }}" alt="TokoOnline"
         height="100"
-        width="100">
+        width="100"
+        class="d-inline-block align-middle">
         </a>
 
         {{-- Mobile Toggle --}}

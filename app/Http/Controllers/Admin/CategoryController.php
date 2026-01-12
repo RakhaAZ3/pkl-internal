@@ -42,6 +42,8 @@ class CategoryController extends Controller
             'is_active'   => 'boolean',
         ]);
 
+        $validated['is_active'] = $request->has('is_active');
+
         // 2. Handle Upload Gambar (Jika ada)
         if ($request->hasFile('image')) {
             // store('categories', 'public') akan menyimpan file di: storage/app/public/categories
@@ -78,6 +80,8 @@ class CategoryController extends Controller
             'image'       => 'nullable|image|max:1024',
             'is_active'   => 'boolean',
         ]);
+
+        $validated['is_active'] = $request->has('is_active');
 
         // 2. Handle Ganti Gambar
         if ($request->hasFile('image')) {

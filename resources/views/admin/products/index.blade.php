@@ -45,14 +45,12 @@
                                 <tr>
                                     <td class="ps-4">
                                         <div class="d-flex align-items-center">
-                                            @if($category->image)
-                                                <img src="{{ Storage::url($category->image) }}" class="rounded me-2" width="40" height="40">
-                                            @else
-                                                <div class="bg-light rounded d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
-                                                    <i class="bi bi-image text-muted"></i>
-                                                </div>
-                                            @endif
+                                            <img style="width: 40px; height: 40px;" src="{{ $category->primaryImage?->image_url ?? asset('img/no-image.png') }}" class="rounded"
+                            width="60">
                                             <div>
+                                                {{-- <div class="bg-light rounded d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-image text-muted"></i>
+                                                </div> --}}
                                                 <div class="fw-bold">{{ $category->name }}</div>
                                                 <small class="text-muted">{{ $category->slug }}</small>
                                             </div>

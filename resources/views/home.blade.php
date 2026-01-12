@@ -18,7 +18,7 @@
                     </h1>
                     <p class="lead mb-4">
                         Temukan berbagai produk berkualitas dengan harga terbaik.
-                        Gratis ongkir untuk pembelian pertama!
+                        Gratis ongkir!
                     </p>
                     <a href="{{ route('catalog.index') }}" class="btn btn-light btn-lg">
                         <i class="bi bi-bag me-2"></i>Mulai Belanja
@@ -41,17 +41,17 @@
                     <div class="col-6 col-md-4 col-lg-2">
                         <a href="{{ route('catalog.index', ['category' => $category->slug]) }}"
                            class="text-decoration-none">
-                            <div class="card border-0 shadow-sm text-center h-100">
-                                <div class="card-body">
-                                    <img src="{{ $category->image_url }}"
-                                         alt="{{ $category->name }}"
-                                         class="rounded-circle mb-3"
-                                         width="80" height="80"
-                                         style="object-fit: cover;">
-                                    <h6 class="card-title mb-0">{{ $category->name }}</h6>
-                                    <small class="text-muted">{{ $category->products_count }} produk</small>
-                                </div>
-                            </div>
+                            <div class="card border-0 shadow-sm text-center h-100 category-card">
+    <div class="card-body d-flex flex-column align-items-center">
+        <div class="category-image mb-3">
+            <img src="{{ $category->image_url }}"
+                 alt="{{ $category->name }}">
+        </div>
+
+        <h6 class="card-title mb-1">{{ $category->name }}</h6>
+        <small class="text-muted">{{ $category->products_count }} produk</small>
+    </div>
+</div>
                         </a>
                     </div>
                 @endforeach
@@ -87,7 +87,7 @@
                         <div class="card-body d-flex flex-column justify-content-center">
                             <h3>Flash Sale!</h3>
                             <p>Diskon hingga 50% untuk produk pilihan</p>
-                            <a href="#" class="btn btn-dark" style="width: fit-content;">
+                            <a href="{{ route('catalog.index', ['on_sale' => 1]) }}" class="btn btn-dark" style="width: fit-content;">
                                 Lihat Promo
                             </a>
                         </div>
@@ -96,8 +96,9 @@
                 <div class="col-md-6">
                     <div class="card bg-info text-white border-0" style="min-height: 200px;">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <h3>Member Baru?</h3>
-                            <p>Dapatkan voucher Rp 50.000 untuk pembelian pertama</p>
+                            <h3>Gabung Sekarang</h3>
+                            <p>Buat akun untuk menyimpan wishlist, melihat pesanan,
+                            dan mendapatkan pengalaman belanja yang lebih mudah.</p>
                             <a href="{{ route('register') }}" class="btn btn-light" style="width: fit-content;">
                                 Daftar Sekarang
                             </a>

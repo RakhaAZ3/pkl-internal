@@ -9,7 +9,7 @@
             {{-- Brand & Description --}}
             <div class="col-lg-4 col-md-6">
                 <h5 class="text-white mb-3">
-                    <i class="bi bi-bag-heart-fill me-2"></i>TokoOnline
+                    <i class="bi bi-bag-heart-fill me-2"></i>Skolafit
                 </h5>
                 <p class="text-secondary">
                     Toko online terpercaya dengan berbagai produk berkualitas.

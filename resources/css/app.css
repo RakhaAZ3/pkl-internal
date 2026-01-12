@@ -92,3 +92,56 @@ footer {
   font-size: 0.75rem;
   font-weight: 600;
 }
+/* ===============================
+   TEMA NAVBAR E-COMMERCE OLAHRAGA
+   Biru Muda + Putih + Navy
+   =============================== */
+
+.navbar-blue {
+    background-color: #4DA3FF; /* Biru muda */
+}
+
+/* Brand & link */
+.navbar-blue .navbar-brand,
+.navbar-blue .nav-link {
+    color: #ffffff !important;
+}
+
+/* Hover link */
+.navbar-blue .nav-link:hover {
+    color: #EAF6FF !important;
+}
+
+/* Search */
+.navbar-blue .form-control {
+    border: none;
+}
+
+.navbar-blue .btn-outline-primary {
+    color: #1E3A8A;
+    border-color: #ffffff;
+    background-color: #ffffff;
+}
+
+.navbar-blue .btn-outline-primary:hover {
+    background-color: #EAF6FF;
+}
+
+/* Badge */
+.navbar-blue .badge.bg-primary {
+    background-color: #1E3A8A !important; /* Navy */
+}
+
+/* Dropdown */
+.navbar-blue .dropdown-menu {
+    border-radius: 12px;
+}
+
+/* Toggle mobile */
+.navbar-blue .navbar-toggler {
+    border-color: rgba(255,255,255,0.7);
+}
+
+.navbar-blue .navbar-toggler-icon {
+    filter: invert(1);
+}

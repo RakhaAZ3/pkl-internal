@@ -248,3 +248,7 @@ Route::post('midtrans/notification', [MidtransNotificationController::class, 'ha
 // AUTH ROUTES (dari Laravel UI)
 // ================================================
 Auth::routes();
+// Route testing error page
+Route::get('/cek', function () {
+    abort(404);
+});
