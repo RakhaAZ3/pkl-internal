@@ -25,6 +25,12 @@ return new class extends Migration
             $table->string('slug')->unique(); // Slug wajib valid URL dan unik
             $table->text('description')->nullable();
 
+            // GAMBAR PRODUK
+            // Menyimpan nama file gambar cover komik
+            // Contoh: one-piece-1.jpg
+            // File akan disimpan di: public/storage/products/
+            $table->string('image')->nullable();
+
             // HARGA (PENTING!)
             // MENGAPA DECIMAL? Bukan Float?
             // Float tidak presisi untuk uang (bisa terjadi rounding error).

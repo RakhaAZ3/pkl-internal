@@ -23,18 +23,20 @@
         {{-- Navbar Content --}}
         <div class="navbar-collapse" id="navbarMain">
             {{-- Search Form --}}
-            <form class="d-flex mx-auto" style="max-width: 400px; width: 100%;"
-                  action="{{ route('catalog.index') }}" method="GET">
-                <div class="input-group">
-                    <input type="text" name="q"
-                           class="form-control"
-                           placeholder="Cari produk..."
-                           value="{{ request('q') }}">
-                    <button class="btn btn-outline-primary" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-            </form>
+            <form class="d-flex mx-auto navbar-search"
+      action="{{ route('catalog.index') }}" method="GET">
+    <div class="input-group">
+        <span class="input-group-text bg-white border-0">
+            <i class="bi bi-search text-primary"></i>
+        </span>
+        <input type="text"
+               name="q"
+               class="form-control border-0"
+               placeholder="Cari sepatu, jersey, tas olahraga..."
+               value="{{ request('q') }}">
+    </div>
+</form>
+
 
             {{-- Right Menu --}}
             <ul class="navbar-nav ms-auto align-items-center">
@@ -59,14 +61,14 @@
                     </li>
 
                     {{-- Cart --}}
-                    <li class="nav-item">
+                    <li class="nav-item icon-nav">
                         <a class="nav-link position-relative" href="{{ route('cart.index') }}">
                             <i class="bi bi-cart3"></i>
                             @php
                                 $cartCount = auth()->user()->cart?->items()->count() ?? 0;
                             @endphp
                             @if($cartCount > 0)
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" style="font-size: 0.6rem;">
+                                <span class="badge-icon" style="font-size: 0.6rem;">
                                     {{ $cartCount }}
                                 </span>
                             @endif

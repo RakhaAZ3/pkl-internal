@@ -46,12 +46,6 @@ class CategorySeeder extends Seeder
                 'image' => 'categories/tas.png',
                 'is_active' => true,
             ],
-            [
-                'name' => 'Rumah Tangga',
-                'slug' => 'rumah-tangga',
-                'description' => 'Peralatan rumah tangga dan dekorasi',
-                'is_active' => true,
-            ],
         ];
 
         foreach ($categories as $category) {
