@@ -31,9 +31,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <p class="text-muted text-uppercase fw-semibold mb-1" style="font-size: 0.8rem">Perlu Diproses</p>
+                            <p class="text-muted text-uppercase fw-semibold mb-1" style="font-size: 0.8rem">Total Pesanan</p>
                             <h4 class="fw-bold mb-0 text-warning">
-                                {{ $stats['pending_orders'] }}
+                                {{ $stats['total_orders'] }}
                             </h4>
                         </div>
                         <div class="bg-warning bg-opacity-10 p-3 rounded">
