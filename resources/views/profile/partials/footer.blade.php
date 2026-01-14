@@ -69,13 +69,9 @@
 
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0 small text-muted">
+                <p class="mb-0 small">
                     © {{ date('Y') }} Skolafit. All rights reserved.
                 </p>
-            </div>
-
-            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-                <img src="{{ asset('images/payment-methods.png') }}" alt="Payment Methods" height="32">
             </div>
         </div>
     </div>
