@@ -75,6 +75,11 @@ footer {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.btn-card {
+    background-color: #1e90ff;
+    color: #ffffff;
+}
+
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
